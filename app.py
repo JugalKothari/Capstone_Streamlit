@@ -344,11 +344,16 @@ if selected == "EMA and GJR-GARCH(1,1)":
     strategy = st.selectbox("Choose a Trading Strategy", ["Strategy 1", "Strategy 2"])
 
     # Strategy parameters
-    max_positions = st.slider("Max Positions", 1, 5, 2)
-    profit_target = st.slider("Profit Target (%)", 0.01, 0.1, 0.03)
-    stop_loss = st.slider("Stop Loss (%)", -0.1, 0.0, -0.02)
-    initial_threshold_prob = st.slider("Initial Threshold Probability", 0.5, 0.9, 0.6)
-    initial_decline_threshold = st.slider("Initial Decline Threshold", 0.01, 0.2, 0.06)
+    if strategy=="Strategy 1":
+        max_positions = st.slider("Max Positions", 1, 5, 2)
+        profit_target = st.slider("Profit Target (%)", 0.01, 0.1, 0.03)
+        stop_loss = st.slider("Stop Loss (%)", -0.1, 0.0, -0.02)
+    else:
+        max_positions = st.slider("Max Positions", 1, 5, 2)
+        profit_target = st.slider("Profit Target (%)", 0.01, 0.1, 0.03)
+        stop_loss = st.slider("Stop Loss (%)", -0.1, 0.0, -0.02)
+        initial_threshold_prob = st.slider("Initial Threshold Probability", 0.5, 0.9, 0.6)
+        initial_decline_threshold = st.slider("Initial Decline Threshold", 0.01, 0.2, 0.06)
 
     # Set up date ranges for test indices
     test_dates = [
